@@ -37,6 +37,17 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         JB_registro = new javax.swing.JButton();
         JD_registro = new javax.swing.JDialog();
         jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        TF_usuarioR = new javax.swing.JTextField();
+        jLabel9 = new javax.swing.JLabel();
+        TF_contrasenaR = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        TF_nombreR = new javax.swing.JTextField();
+        jLabel11 = new javax.swing.JLabel();
+        TF_correoR = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        JS_edadR = new javax.swing.JSpinner();
+        JB_registrarR = new javax.swing.JButton();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         JP_juego = new javax.swing.JPanel();
         CB_juego = new javax.swing.JComboBox<>();
@@ -52,6 +63,12 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         JP_Idioma = new javax.swing.JPanel();
+        jLabel13 = new javax.swing.JLabel();
+        TF_nombreIdioma = new javax.swing.JTextField();
+        jLabel14 = new javax.swing.JLabel();
+        CB_idiomajuego = new javax.swing.JComboBox<>();
+        JB_crearIdioma = new javax.swing.JButton();
+        JB_agregarIdioma = new javax.swing.JButton();
         JP_correos = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
@@ -114,21 +131,75 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel7.setText("Registro");
 
+        jLabel8.setText("Usuario");
+
+        jLabel9.setText("Contrasena");
+
+        jLabel10.setText("Nombre");
+
+        jLabel11.setText("Correo");
+
+        jLabel12.setText("Edad");
+
+        JB_registrarR.setText("Registrar");
+
         javax.swing.GroupLayout JD_registroLayout = new javax.swing.GroupLayout(JD_registro.getContentPane());
         JD_registro.getContentPane().setLayout(JD_registroLayout);
         JD_registroLayout.setHorizontalGroup(
             JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JD_registroLayout.createSequentialGroup()
-                .addGap(199, 199, 199)
-                .addComponent(jLabel7)
-                .addContainerGap(231, Short.MAX_VALUE))
+                .addGroup(JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_registroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(JD_registroLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel8)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_nombreR)
+                            .addComponent(TF_usuarioR)
+                            .addComponent(JS_edadR, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
+                        .addGap(53, 53, 53)
+                        .addGroup(JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel9)
+                            .addComponent(TF_contrasenaR)
+                            .addComponent(TF_correoR)
+                            .addComponent(JB_registrarR, javax.swing.GroupLayout.DEFAULT_SIZE, 186, Short.MAX_VALUE)))
+                    .addGroup(JD_registroLayout.createSequentialGroup()
+                        .addGap(172, 172, 172)
+                        .addComponent(jLabel7)))
+                .addContainerGap(48, Short.MAX_VALUE))
         );
         JD_registroLayout.setVerticalGroup(
             JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JD_registroLayout.createSequentialGroup()
-                .addGap(21, 21, 21)
+                .addContainerGap()
                 .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(232, Short.MAX_VALUE))
+                .addGap(21, 21, 21)
+                .addGroup(JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TF_usuarioR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TF_contrasenaR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TF_nombreR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TF_correoR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JS_edadR, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(JB_registrarR))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -201,15 +272,47 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Juego", JP_juego);
 
+        jLabel13.setText("Nombre");
+
+        jLabel14.setText("Idioma del juego");
+
+        JB_crearIdioma.setText("Crear");
+
+        JB_agregarIdioma.setText("Agregar");
+
         javax.swing.GroupLayout JP_IdiomaLayout = new javax.swing.GroupLayout(JP_Idioma);
         JP_Idioma.setLayout(JP_IdiomaLayout);
         JP_IdiomaLayout.setHorizontalGroup(
             JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 660, Short.MAX_VALUE)
+            .addGroup(JP_IdiomaLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(JB_crearIdioma, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(TF_nombreIdioma))
+                .addGap(60, 60, 60)
+                .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel14)
+                    .addComponent(CB_idiomajuego, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(JB_agregarIdioma, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
+                .addContainerGap(163, Short.MAX_VALUE))
         );
         JP_IdiomaLayout.setVerticalGroup(
             JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 629, Short.MAX_VALUE)
+            .addGroup(JP_IdiomaLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel13)
+                    .addComponent(jLabel14))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(TF_nombreIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(CB_idiomajuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JB_crearIdioma)
+                    .addComponent(JB_agregarIdioma))
+                .addContainerGap(519, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Idioma", JP_Idioma);
@@ -302,10 +405,14 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> CB_idiomajuego;
     private javax.swing.JComboBox<String> CB_juego;
+    private javax.swing.JButton JB_agregarIdioma;
+    private javax.swing.JButton JB_crearIdioma;
     private javax.swing.JButton JB_ejecutar;
     private javax.swing.JButton JB_generar;
     private javax.swing.JButton JB_ingresar;
+    private javax.swing.JButton JB_registrarR;
     private javax.swing.JButton JB_registro;
     private javax.swing.JDialog JD_login;
     private javax.swing.JDialog JD_registro;
@@ -313,18 +420,31 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JPanel JP_Idioma;
     private javax.swing.JPanel JP_correos;
     private javax.swing.JPanel JP_juego;
+    private javax.swing.JSpinner JS_edadR;
     private javax.swing.JMenuItem MI_abrirarchivo;
     private javax.swing.JMenuItem MI_limpiar;
     private javax.swing.JMenuItem MI_salir;
     private javax.swing.JTextField TF_contrasena;
+    private javax.swing.JTextField TF_contrasenaR;
+    private javax.swing.JTextField TF_correoR;
+    private javax.swing.JTextField TF_nombreIdioma;
+    private javax.swing.JTextField TF_nombreR;
     private javax.swing.JTextField TF_usuario;
+    private javax.swing.JTextField TF_usuarioR;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTabbedPane jTabbedPane1;
