@@ -64,6 +64,11 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         Juego_Categoria2 = new javax.swing.JTextField();
         Juego_Costo1 = new javax.swing.JTextField();
         Juego_Costo2 = new javax.swing.JTextField();
+        PB_barra = new javax.swing.JProgressBar();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
         JP_Idioma = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         TF_nombreIdioma = new javax.swing.JTextField();
@@ -71,6 +76,8 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         CB_idiomajuego = new javax.swing.JComboBox<>();
         JB_crearIdioma = new javax.swing.JButton();
         JB_agregarIdioma = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        jTable2 = new javax.swing.JTable();
         JP_correos = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
@@ -234,34 +241,98 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
         jLabel3.setText("Costo");
 
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Nombre", "Categoria", "Costo", "Idiomas"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane2.setViewportView(jTable1);
+
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre", "Categoria", "Costo", "Idiomas"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Integer.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane4.setViewportView(jTable3);
+
         javax.swing.GroupLayout JP_juegoLayout = new javax.swing.GroupLayout(JP_juego);
         JP_juego.setLayout(JP_juegoLayout);
         JP_juegoLayout.setHorizontalGroup(
             JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_juegoLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
+                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(JP_juegoLayout.createSequentialGroup()
-                        .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(CB_juego, 0, 140, Short.MAX_VALUE)
-                            .addComponent(JB_generar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JB_ejecutar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(62, 62, 62)
+                        .addGap(19, 19, 19)
                         .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))))
-                .addGap(18, 18, 18)
-                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Juego_Nombre1)
-                    .addComponent(Juego_Categoria1)
-                    .addComponent(Juego_Costo1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(Juego_Nombre2)
-                    .addComponent(Juego_Categoria2)
-                    .addComponent(Juego_Costo2, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
-                .addContainerGap(39, Short.MAX_VALUE))
+                            .addComponent(jLabel3)
+                            .addGroup(JP_juegoLayout.createSequentialGroup()
+                                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(CB_juego, 0, 140, Short.MAX_VALUE)
+                                    .addComponent(JB_generar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(JB_ejecutar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(62, 62, 62)
+                                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel1))))
+                        .addGap(18, 18, 18)
+                        .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Juego_Nombre1)
+                            .addComponent(Juego_Categoria1)
+                            .addComponent(Juego_Costo1, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(Juego_Nombre2)
+                            .addComponent(Juego_Categoria2)
+                            .addComponent(Juego_Costo2, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(JP_juegoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(PB_barra, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(JP_juegoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(JP_juegoLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+                    .addContainerGap()))
         );
         JP_juegoLayout.setVerticalGroup(
             JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -284,7 +355,16 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                     .addComponent(jLabel3)
                     .addComponent(Juego_Costo1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(Juego_Costo2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(500, Short.MAX_VALUE))
+                .addGap(96, 96, 96)
+                .addComponent(PB_barra, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(58, 58, 58))
+            .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, JP_juegoLayout.createSequentialGroup()
+                    .addContainerGap(286, Short.MAX_VALUE)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(255, 255, 255)))
         );
 
         jTabbedPane1.addTab("Juego", JP_juego);
@@ -297,22 +377,50 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
         JB_agregarIdioma.setText("Agregar");
 
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "ID", "Nombre"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane3.setViewportView(jTable2);
+
         javax.swing.GroupLayout JP_IdiomaLayout = new javax.swing.GroupLayout(JP_Idioma);
         JP_Idioma.setLayout(JP_IdiomaLayout);
         JP_IdiomaLayout.setHorizontalGroup(
             JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_IdiomaLayout.createSequentialGroup()
                 .addGap(21, 21, 21)
-                .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(JB_crearIdioma, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(TF_nombreIdioma))
-                .addGap(60, 60, 60)
-                .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel14)
-                    .addComponent(CB_idiomajuego, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JB_agregarIdioma, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))
-                .addContainerGap(163, Short.MAX_VALUE))
+                .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(JP_IdiomaLayout.createSequentialGroup()
+                        .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(JB_crearIdioma, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_nombreIdioma))
+                        .addGap(60, 60, 60)
+                        .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel14)
+                            .addComponent(CB_idiomajuego, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JB_agregarIdioma, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         JP_IdiomaLayout.setVerticalGroup(
             JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -329,7 +437,9 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                 .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(JB_crearIdioma)
                     .addComponent(JB_agregarIdioma))
-                .addContainerGap(519, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(92, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Idioma", JP_Idioma);
@@ -387,7 +497,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 449, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 522, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -512,6 +622,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem MI_abrirarchivo;
     private javax.swing.JMenuItem MI_limpiar;
     private javax.swing.JMenuItem MI_salir;
+    private javax.swing.JProgressBar PB_barra;
     private javax.swing.JTextField TF_contrasena;
     private javax.swing.JTextField TF_contrasenaR;
     private javax.swing.JTextField TF_correoR;
@@ -540,7 +651,13 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTable jTable1;
+    private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
