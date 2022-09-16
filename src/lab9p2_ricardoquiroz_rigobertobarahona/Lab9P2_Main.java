@@ -27,11 +27,30 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        JD_login = new javax.swing.JDialog();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        TF_usuario = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        TF_contrasena = new javax.swing.JTextField();
+        JB_ingresar = new javax.swing.JButton();
+        JB_registro = new javax.swing.JButton();
+        JD_registro = new javax.swing.JDialog();
+        jLabel7 = new javax.swing.JLabel();
         jTabbedPane1 = new javax.swing.JTabbedPane();
         JP_juego = new javax.swing.JPanel();
         CB_juego = new javax.swing.JComboBox<>();
         JB_generar = new javax.swing.JButton();
         JB_ejecutar = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jTextField2 = new javax.swing.JTextField();
+        jTextField3 = new javax.swing.JTextField();
+        jTextField4 = new javax.swing.JTextField();
+        jTextField5 = new javax.swing.JTextField();
+        jTextField6 = new javax.swing.JTextField();
         JP_Idioma = new javax.swing.JPanel();
         JP_correos = new javax.swing.JPanel();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -40,6 +59,77 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         JM_recientes = new javax.swing.JMenu();
         MI_limpiar = new javax.swing.JMenuItem();
         MI_salir = new javax.swing.JMenuItem();
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
+        jLabel4.setText("Login");
+
+        jLabel5.setText("Usuario");
+
+        jLabel6.setText("Contrasena");
+
+        JB_ingresar.setText("Ingresar");
+
+        JB_registro.setText("Registro");
+
+        javax.swing.GroupLayout JD_loginLayout = new javax.swing.GroupLayout(JD_login.getContentPane());
+        JD_login.getContentPane().setLayout(JD_loginLayout);
+        JD_loginLayout.setHorizontalGroup(
+            JD_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_loginLayout.createSequentialGroup()
+                .addGroup(JD_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(JD_loginLayout.createSequentialGroup()
+                        .addGap(55, 55, 55)
+                        .addGroup(JD_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel5)
+                            .addComponent(TF_usuario)
+                            .addComponent(jLabel6)
+                            .addComponent(TF_contrasena)
+                            .addComponent(JB_ingresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JB_registro, javax.swing.GroupLayout.DEFAULT_SIZE, 287, Short.MAX_VALUE)))
+                    .addGroup(JD_loginLayout.createSequentialGroup()
+                        .addGap(145, 145, 145)
+                        .addComponent(jLabel4)))
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+        JD_loginLayout.setVerticalGroup(
+            JD_loginLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_loginLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel4)
+                .addGap(41, 41, 41)
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TF_usuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel6)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(TF_contrasena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(53, 53, 53)
+                .addComponent(JB_ingresar)
+                .addGap(18, 18, 18)
+                .addComponent(JB_registro)
+                .addContainerGap(96, Short.MAX_VALUE))
+        );
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel7.setText("Registro");
+
+        javax.swing.GroupLayout JD_registroLayout = new javax.swing.GroupLayout(JD_registro.getContentPane());
+        JD_registro.getContentPane().setLayout(JD_registroLayout);
+        JD_registroLayout.setHorizontalGroup(
+            JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_registroLayout.createSequentialGroup()
+                .addGap(199, 199, 199)
+                .addComponent(jLabel7)
+                .addContainerGap(231, Short.MAX_VALUE))
+        );
+        JD_registroLayout.setVerticalGroup(
+            JD_registroLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(JD_registroLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(232, Short.MAX_VALUE))
+        );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -50,27 +140,62 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
         JB_ejecutar.setText("Ejecutar");
 
+        jLabel1.setText("Nombre");
+
+        jLabel2.setText("Categoria");
+
+        jLabel3.setText("Costo");
+
         javax.swing.GroupLayout JP_juegoLayout = new javax.swing.GroupLayout(JP_juego);
         JP_juego.setLayout(JP_juegoLayout);
         JP_juegoLayout.setHorizontalGroup(
             JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_juegoLayout.createSequentialGroup()
                 .addGap(19, 19, 19)
+                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel3)
+                    .addGroup(JP_juegoLayout.createSequentialGroup()
+                        .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(CB_juego, 0, 140, Short.MAX_VALUE)
+                            .addComponent(JB_generar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(JB_ejecutar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(62, 62, 62)
+                        .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel1))))
+                .addGap(18, 18, 18)
                 .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CB_juego, 0, 140, Short.MAX_VALUE)
-                    .addComponent(JB_generar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(JB_ejecutar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(501, Short.MAX_VALUE))
+                    .addComponent(jTextField1)
+                    .addComponent(jTextField3)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.DEFAULT_SIZE, 149, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jTextField2)
+                    .addComponent(jTextField4)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 169, Short.MAX_VALUE))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         JP_juegoLayout.setVerticalGroup(
             JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(JP_juegoLayout.createSequentialGroup()
                 .addGap(27, 27, 27)
-                .addComponent(CB_juego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(CB_juego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1)
+                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(JB_generar)
+                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JB_generar)
+                    .addComponent(jLabel2)
+                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(JB_ejecutar)
+                .addGroup(JP_juegoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(JB_ejecutar)
+                    .addComponent(jLabel3)
+                    .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(500, Short.MAX_VALUE))
         );
 
@@ -180,6 +305,10 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> CB_juego;
     private javax.swing.JButton JB_ejecutar;
     private javax.swing.JButton JB_generar;
+    private javax.swing.JButton JB_ingresar;
+    private javax.swing.JButton JB_registro;
+    private javax.swing.JDialog JD_login;
+    private javax.swing.JDialog JD_registro;
     private javax.swing.JMenu JM_recientes;
     private javax.swing.JPanel JP_Idioma;
     private javax.swing.JPanel JP_correos;
@@ -187,8 +316,23 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem MI_abrirarchivo;
     private javax.swing.JMenuItem MI_limpiar;
     private javax.swing.JMenuItem MI_salir;
+    private javax.swing.JTextField TF_contrasena;
+    private javax.swing.JTextField TF_usuario;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JTextField jTextField1;
+    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextField4;
+    private javax.swing.JTextField jTextField5;
+    private javax.swing.JTextField jTextField6;
     // End of variables declaration//GEN-END:variables
 }
