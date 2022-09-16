@@ -434,7 +434,16 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private void JB_ejecutarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ejecutarMouseClicked
         DefaultComboBoxModel CB_Juego = (DefaultComboBoxModel) CB_juego.getModel();
         if (CB_Juego.getSelectedItem().equals("Crear") ) {
-            JOptionPane.showMessageDialog(this, "Crear");
+            String nombre = Juego_Nombre1.getText();
+            String genre = Juego_Categoria1.getText();
+            int precio = Integer.parseInt(Juego_Costo1.getText() );
+            ArrayList<Lenguaje> temporal = new ArrayList();
+            juegos.add( new Juegos( nombre, genre, precio, temporal) );           
+            JOptionPane.showMessageDialog(this, "Juego Agregado Exitosamente");
+            Juego_Nombre1.setText("");
+            Juego_Categoria1.setText("");
+            Juego_Costo1.setText("");
+            
         } else if (CB_Juego.getSelectedItem().equals("Modificar") ){
             JOptionPane.showMessageDialog(this, "Modificar");
         } else if (CB_Juego.getSelectedItem().equals("Eliminar") ){
