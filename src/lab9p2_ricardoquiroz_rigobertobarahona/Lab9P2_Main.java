@@ -26,7 +26,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     int cont = 0;
     ArrayList<Usuario> usuarios = new ArrayList();
     ArrayList<Juegos> juegos = new ArrayList();
-    
+    ArrayList<Lenguaje> lenguajes = new ArrayList();
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -73,11 +73,11 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         Juego_Tabla1 = new javax.swing.JTable();
         JP_Idioma = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
-        TF_nombreIdioma = new javax.swing.JTextField();
+        Idioma_Nombre = new javax.swing.JTextField();
         jLabel14 = new javax.swing.JLabel();
         CB_idiomajuego = new javax.swing.JComboBox<>();
-        JB_crearIdioma = new javax.swing.JButton();
-        JB_agregarIdioma = new javax.swing.JButton();
+        Idioma_Crear = new javax.swing.JButton();
+        Idioma_Agregar = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         Idioma_Tabla = new javax.swing.JTable();
         JP_correos = new javax.swing.JPanel();
@@ -375,10 +375,16 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
         jLabel14.setText("Idioma del juego");
 
-        JB_crearIdioma.setText("Crear");
+        Idioma_Crear.setText("Crear");
+        Idioma_Crear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Idioma_Crear.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                Idioma_CrearMouseClicked(evt);
+            }
+        });
 
-        JB_agregarIdioma.setText("Agregar");
-        JB_agregarIdioma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Idioma_Agregar.setText("Agregar");
+        Idioma_Agregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         Idioma_Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -415,14 +421,14 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                     .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 595, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(JP_IdiomaLayout.createSequentialGroup()
                         .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(JB_crearIdioma, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
-                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(TF_nombreIdioma))
+                            .addComponent(Idioma_Crear, javax.swing.GroupLayout.DEFAULT_SIZE, 211, Short.MAX_VALUE)
+                            .addComponent(Idioma_Nombre)
+                            .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(60, 60, 60)
                         .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jLabel14)
                             .addComponent(CB_idiomajuego, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(JB_agregarIdioma, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))))
+                            .addComponent(Idioma_Agregar, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE))))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         JP_IdiomaLayout.setVerticalGroup(
@@ -434,12 +440,12 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                     .addComponent(jLabel14))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(TF_nombreIdioma, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Idioma_Nombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(CB_idiomajuego, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(JP_IdiomaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(JB_crearIdioma)
-                    .addComponent(JB_agregarIdioma))
+                    .addComponent(Idioma_Crear)
+                    .addComponent(Idioma_Agregar))
                 .addGap(43, 43, 43)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 457, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(92, Short.MAX_VALUE))
@@ -633,6 +639,18 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JB_ejecutarMouseClicked
 
+    private void Idioma_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Idioma_CrearMouseClicked
+        DefaultTableModel Lenguajes = (DefaultTableModel) Idioma_Tabla.getModel();
+        String lengua = Idioma_Nombre.getText();
+        lenguajes.add(new Lenguaje(lengua));
+        Lenguajes.setRowCount(0);
+        for (int i = 0; i < lenguajes.size(); i++) {
+            Object[] objs = {i, lenguajes.get(i).getLengua() };
+            Lenguajes.addRow(objs);
+        }
+        Idioma_Tabla.setModel(Lenguajes);
+    }//GEN-LAST:event_Idioma_CrearMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -669,9 +687,10 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CB_idiomajuego;
     private javax.swing.JComboBox<String> CB_juego;
+    private javax.swing.JButton Idioma_Agregar;
+    private javax.swing.JButton Idioma_Crear;
+    private javax.swing.JTextField Idioma_Nombre;
     private javax.swing.JTable Idioma_Tabla;
-    private javax.swing.JButton JB_agregarIdioma;
-    private javax.swing.JButton JB_crearIdioma;
     private javax.swing.JButton JB_ejecutar;
     private javax.swing.JButton JB_generar;
     private javax.swing.JButton JB_ingresar;
@@ -699,7 +718,6 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JTextField TF_contrasena;
     private javax.swing.JTextField TF_contrasenaR;
     private javax.swing.JTextField TF_correoR;
-    private javax.swing.JTextField TF_nombreIdioma;
     private javax.swing.JTextField TF_nombreR;
     private javax.swing.JTextField TF_usuario;
     private javax.swing.JTextField TF_usuarioR;
