@@ -48,5 +48,10 @@ public class Juegos {
         this.precio = precio;
         this.lenguas = lenguas;
     }
+
+    @Override
+    public String toString() {
+        return nombre;
+    }
     
 }
