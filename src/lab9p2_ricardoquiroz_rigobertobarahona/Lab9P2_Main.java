@@ -21,6 +21,8 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
     public Lab9P2_Main() {
         initComponents();
+        showLogin();
+             
     }
     int cont = 0;
     ArrayList<Usuario> usuarios = new ArrayList();
@@ -104,6 +106,11 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         JB_ingresar.setText("Ingresar");
 
         JB_registro.setText("Registro");
+        JB_registro.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_registroMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JD_loginLayout = new javax.swing.GroupLayout(JD_login.getContentPane());
         JD_login.getContentPane().setLayout(JD_loginLayout);
@@ -219,7 +226,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
 
         CB_juego.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crear", "Modificar", "Seleccionar", "Eliminar", " " }));
@@ -593,6 +600,11 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_JB_ejecutarMouseClicked
 
+    private void JB_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_registroMouseClicked
+        // TODO add your handling code here:
+        JD_registro.setVisible(true);
+    }//GEN-LAST:event_JB_registroMouseClicked
+
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -625,6 +637,21 @@ public class Lab9P2_Main extends javax.swing.JFrame {
             }
         });
     }
+    
+    public void showLogin(){
+        JD_login.setModal(true);
+        JD_login.pack();;
+        JD_login.setLocationRelativeTo(this);
+        JD_login.setVisible(true);
+    }
+    
+    public void showRegistro(){
+        JD_registro.setModal(true);
+        JD_registro.pack();;
+        JD_registro.setLocationRelativeTo(this);
+        JD_registro.setVisible(true);
+    }
+    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CB_idiomajuego;

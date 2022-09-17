@@ -83,6 +83,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Registro"/>
           </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="JB_registroMouseClicked"/>
+          </Events>
         </Component>
       </SubComponents>
     </Container>
@@ -245,7 +248,7 @@
     </Menu>
   </NonVisualComponents>
   <Properties>
-    <Property name="defaultCloseOperation" type="int" value="3"/>
+    <Property name="defaultCloseOperation" type="int" value="2"/>
     <Property name="resizable" type="boolean" value="false"/>
   </Properties>
   <SyntheticProperties>
