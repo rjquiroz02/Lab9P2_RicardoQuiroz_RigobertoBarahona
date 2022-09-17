@@ -105,6 +105,11 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         jLabel6.setText("Contrasena");
 
         JB_ingresar.setText("Ingresar");
+        JB_ingresar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_ingresarMouseClicked(evt);
+            }
+        });
 
         JB_registro.setText("Registro");
         JB_registro.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -562,11 +567,27 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void JB_ejecutarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ejecutarMouseClicked
+
         DefaultComboBoxModel CB_Juego = (DefaultComboBoxModel) CB_juego.getModel();
         DefaultTableModel model = (DefaultTableModel) Juego_Tabla1.getModel();
         DefaultTableModel model2 = (DefaultTableModel) Juego_Tabla2.getModel();
         DefaultComboBoxModel Juegos = (DefaultComboBoxModel) CB_idiomajuego.getModel();
         if (CB_Juego.getSelectedItem().equals("Crear") ) {
+            Dba db = new Dba("./Lab9P2_RicardoQuiroz_RigobertoBarahona.accdb");
+        db.conectar();
+        try {
+            String nombre = Juego_Nombre1.getText();
+            String categoria = Juego_Categoria1.getText();
+            String costo = Juego_Costo1.getText();
+            
+            db.query.execute("INSERT INTO Juegos"
+                    + " (Categoria, Costo, NombreJ)"
+                    + " VALUES ('" + categoria + "', '" + costo + "', '" + nombre + "')");
+            db.commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        db.desconectar();
             String nombre = Juego_Nombre1.getText();
             String genre = Juego_Categoria1.getText();
             int precio = Integer.parseInt(Juego_Costo1.getText() );
@@ -657,6 +678,20 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     }//GEN-LAST:event_JB_registroMouseClicked
 
     private void Idioma_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Idioma_CrearMouseClicked
+        Dba db = new Dba("./Lab9P2_RicardoQuiroz_RigobertoBarahona.accdb");
+        db.conectar();
+        try {
+            String nombre = Idioma_Nombre.getText();
+            db.query.execute("INSERT INTO Idiomas"
+                    + " (NombreI)"
+                    + " VALUES ('" + nombre + "')");
+            db.commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        db.desconectar();
+        JOptionPane.showMessageDialog(this, "Idioma creado");
+        
         boolean booleano = true;
         DefaultTableModel Lenguajes = (DefaultTableModel) Idioma_Tabla.getModel();
         String lengua = Idioma_Nombre.getText();
@@ -690,11 +725,12 @@ public class Lab9P2_Main extends javax.swing.JFrame {
             String usuario = TF_usuarioR.getText();
             String nombre = TF_nombreR.getText();
             String contrasena = TF_contrasenaR.getText();
+            LibLab9.encrypt(contrasena);
             String correo = TF_correoR.getText();
             int edad = (Integer)JS_edadR.getValue();
             db.query.execute("INSERT INTO Usuarios"
                     + " (Usuario, Nombre, Contrasena, Edad, Correo)"
-                    + " VALUES ('" + usuario + "', '" + nombre + "', '" + contrasena + "', '" + edad + "', '" + correo + "')");
+                    + " VALUES ('" + usuario + "', '" + nombre + "', '" + LibLab9.encrypt(contrasena) + "', " + edad + ", '" + correo + "')");
             db.commit();
         } catch (Exception ex) {
             ex.printStackTrace();
@@ -703,6 +739,22 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(this, "Se ha registrado");
         JD_registro.setVisible(false);
     }//GEN-LAST:event_JB_registrarRMouseClicked
+
+    private void JB_ingresarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ingresarMouseClicked
+        // TODO add your handling code here:
+//        if ((TF_usuario.getText().equals()) && (TF_contrasena.getText().equals())) {
+//            JD_login.setVisible(false);
+//        }
+        Dba db = new Dba("./base1.mdb");
+        db.conectar();
+        try {
+            db.query.execute("select nombre, contrasena from Usuarios");
+            
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        db.desconectar();
+    }//GEN-LAST:event_JB_ingresarMouseClicked
 
 
     public static void main(String args[]) {
