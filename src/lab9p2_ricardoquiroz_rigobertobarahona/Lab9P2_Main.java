@@ -244,6 +244,11 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
         JB_generar.setText("Generar");
         JB_generar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        JB_generar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_generarMouseClicked(evt);
+            }
+        });
 
         JB_ejecutar.setText("Ejecutar");
         JB_ejecutar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -593,6 +598,8 @@ public class Lab9P2_Main extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         db.desconectar();
+        LibLab9 ll = new LibLab9();
+        
             String nombre = Juego_Nombre1.getText();
             String genre = Juego_Categoria1.getText();
             int precio = Integer.parseInt(Juego_Costo1.getText() );
@@ -770,6 +777,16 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         ll.sendMail(mensaje, asunto, receptor);
         JOptionPane.showMessageDialog(this, "Se envio el correo exitosamente");
     }//GEN-LAST:event_JB_enviarcorreoMouseClicked
+
+    private void JB_generarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_generarMouseClicked
+        // TODO add your handling code here:
+        LibLab9 ll = new LibLab9();
+        boolean random = true;
+        ll.setProgressBar(PB_barra);
+        ll.hilo.start();
+        ll.colorRand(true);
+        
+    }//GEN-LAST:event_JB_generarMouseClicked
 
 
     public static void main(String args[]) {
