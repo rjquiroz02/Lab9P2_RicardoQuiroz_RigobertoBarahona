@@ -83,13 +83,13 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         Idioma_Tabla = new javax.swing.JTable();
         JP_correos = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField7 = new javax.swing.JTextField();
+        TF_receptor = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField8 = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        TF_asunto = new javax.swing.JTextField();
+        JB_enviarcorreo = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        TA_mensaje = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         MI_abrirarchivo = new javax.swing.JMenuItem();
@@ -473,13 +473,18 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
         jLabel16.setText("Asunto");
 
-        jButton1.setText("Enviar");
+        JB_enviarcorreo.setText("Enviar");
+        JB_enviarcorreo.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_enviarcorreoMouseClicked(evt);
+            }
+        });
 
         jLabel17.setText("Mensaje");
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
+        TA_mensaje.setColumns(20);
+        TA_mensaje.setRows(5);
+        jScrollPane1.setViewportView(TA_mensaje);
 
         javax.swing.GroupLayout JP_correosLayout = new javax.swing.GroupLayout(JP_correos);
         JP_correos.setLayout(JP_correosLayout);
@@ -494,13 +499,13 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                     .addGroup(JP_correosLayout.createSequentialGroup()
                         .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(JB_enviarcorreo, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(24, 24, 24))
                     .addGroup(JP_correosLayout.createSequentialGroup()
                         .addGroup(JP_correosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(TF_asunto, javax.swing.GroupLayout.PREFERRED_SIZE, 467, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(TF_receptor, javax.swing.GroupLayout.PREFERRED_SIZE, 264, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(174, Short.MAX_VALUE))
                     .addGroup(JP_correosLayout.createSequentialGroup()
                         .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -512,13 +517,13 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addGroup(JP_correosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15)
-                    .addComponent(jButton1))
+                    .addComponent(JB_enviarcorreo))
                 .addGap(4, 4, 4)
-                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TF_receptor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel16)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jTextField8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(TF_asunto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel17)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -756,6 +761,16 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         db.desconectar();
     }//GEN-LAST:event_JB_ingresarMouseClicked
 
+    private void JB_enviarcorreoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_enviarcorreoMouseClicked
+        // TODO add your handling code here:
+        String mensaje = TA_mensaje.getText();
+        String asunto = TF_asunto.getText();
+        String receptor = TF_receptor.getText();
+        LibLab9 ll = new LibLab9();
+        ll.sendMail(mensaje, asunto, receptor);
+        JOptionPane.showMessageDialog(this, "Se envio el correo exitosamente");
+    }//GEN-LAST:event_JB_enviarcorreoMouseClicked
+
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -814,6 +829,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JTextField Idioma_Nombre;
     private javax.swing.JTable Idioma_Tabla;
     private javax.swing.JButton JB_ejecutar;
+    private javax.swing.JButton JB_enviarcorreo;
     private javax.swing.JButton JB_generar;
     private javax.swing.JButton JB_ingresar;
     private javax.swing.JButton JB_registrarR;
@@ -837,13 +853,15 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JMenuItem MI_limpiar;
     private javax.swing.JMenuItem MI_salir;
     private javax.swing.JProgressBar PB_barra;
+    private javax.swing.JTextArea TA_mensaje;
+    private javax.swing.JTextField TF_asunto;
     private javax.swing.JTextField TF_contrasena;
     private javax.swing.JTextField TF_contrasenaR;
     private javax.swing.JTextField TF_correoR;
     private javax.swing.JTextField TF_nombreR;
+    private javax.swing.JTextField TF_receptor;
     private javax.swing.JTextField TF_usuario;
     private javax.swing.JTextField TF_usuarioR;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -868,8 +886,5 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTextArea jTextArea1;
-    private javax.swing.JTextField jTextField7;
-    private javax.swing.JTextField jTextField8;
     // End of variables declaration//GEN-END:variables
 }
