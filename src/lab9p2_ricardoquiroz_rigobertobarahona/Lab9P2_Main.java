@@ -22,9 +22,9 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     public Lab9P2_Main() {
         initComponents();
     }
+    int cont = 0;
     ArrayList<Usuario> usuarios = new ArrayList();
     ArrayList<Juegos> juegos = new ArrayList();
-    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -66,9 +66,9 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         Juego_Costo2 = new javax.swing.JTextField();
         PB_barra = new javax.swing.JProgressBar();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        Juego_Tabla2 = new javax.swing.JTable();
         jScrollPane4 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
+        Juego_Tabla1 = new javax.swing.JTable();
         JP_Idioma = new javax.swing.JPanel();
         jLabel13 = new javax.swing.JLabel();
         TF_nombreIdioma = new javax.swing.JTextField();
@@ -241,7 +241,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
         jLabel3.setText("Costo");
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        Juego_Tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -264,9 +264,9 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane2.setViewportView(jTable1);
+        jScrollPane2.setViewportView(Juego_Tabla2);
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        Juego_Tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -289,7 +289,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane4.setViewportView(jTable3);
+        jScrollPane4.setViewportView(Juego_Tabla1);
 
         javax.swing.GroupLayout JP_juegoLayout = new javax.swing.GroupLayout(JP_juego);
         JP_juego.setLayout(JP_juegoLayout);
@@ -543,21 +543,51 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
     private void JB_ejecutarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_ejecutarMouseClicked
         DefaultComboBoxModel CB_Juego = (DefaultComboBoxModel) CB_juego.getModel();
+        DefaultTableModel model = (DefaultTableModel) Juego_Tabla1.getModel();
+        DefaultTableModel model2 = (DefaultTableModel) Juego_Tabla2.getModel();
         if (CB_Juego.getSelectedItem().equals("Crear") ) {
             String nombre = Juego_Nombre1.getText();
             String genre = Juego_Categoria1.getText();
             int precio = Integer.parseInt(Juego_Costo1.getText() );
             ArrayList<Lenguaje> temporal = new ArrayList();
-            juegos.add( new Juegos( nombre, genre, precio, temporal) );           
+            juegos.add( new Juegos( nombre, genre, precio, temporal) );   
+            Object [] obj = {cont, nombre, genre, precio, temporal};
+            model.addRow(obj);
+            Juego_Tabla1.setModel(model);
             JOptionPane.showMessageDialog(this, "Juego Agregado Exitosamente");
             Juego_Nombre1.setText("");
             Juego_Categoria1.setText("");
-            Juego_Costo1.setText("");
-            
+            Juego_Costo1.setText("");            
         } else if (CB_Juego.getSelectedItem().equals("Modificar") ){
-            JOptionPane.showMessageDialog(this, "Modificar");
+            if (juegos.isEmpty() ){
+                JOptionPane.showMessageDialog(this, "No hay Juegos para Modificar");
+            }else{
+                JOptionPane.showMessageDialog(this, "Modificar");
+                String nombreB = Juego_Nombre1.getText();
+                String nombre = Juego_Nombre2.getText();
+                for (int i = 0; i < juegos.size(); i++){
+                    if (nombreB.equals( juegos.get(i).getNombre() ) ){
+                        juegos.get(i).setNombre(nombre);
+                        JOptionPane.showMessageDialog(this, "Modificacion Exitosa");
+                    } else{
+                        JOptionPane.showMessageDialog(this, "No se pudo encontrar el juego deseado");
+                    }
+                }
+            }            
         } else if (CB_Juego.getSelectedItem().equals("Eliminar") ){
-            JOptionPane.showMessageDialog(this, "Eliminar");
+            if (juegos.isEmpty() ){
+                JOptionPane.showMessageDialog(this, "No hay Juegos para Eliminar");
+            }else{
+                String nombre = Juego_Nombre1.getText();
+                for (int i = 0; i < juegos.size(); i++){
+                    if (nombre.equals( juegos.get(i).getNombre() ) ){
+                        juegos.remove(i);
+                        JOptionPane.showMessageDialog(this, "Eliminacion Exitosa");
+                    } else{
+                        JOptionPane.showMessageDialog(this, "No se pudo encontrar el juego");
+                    }
+                }
+            }
         } else{
             JOptionPane.showMessageDialog(this, "Seleccionar");
         }
@@ -619,6 +649,8 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JTextField Juego_Costo2;
     private javax.swing.JTextField Juego_Nombre1;
     private javax.swing.JTextField Juego_Nombre2;
+    private javax.swing.JTable Juego_Tabla1;
+    private javax.swing.JTable Juego_Tabla2;
     private javax.swing.JMenuItem MI_abrirarchivo;
     private javax.swing.JMenuItem MI_limpiar;
     private javax.swing.JMenuItem MI_salir;
@@ -655,9 +687,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
