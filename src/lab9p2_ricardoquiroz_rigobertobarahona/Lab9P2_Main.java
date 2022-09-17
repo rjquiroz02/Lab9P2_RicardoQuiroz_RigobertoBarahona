@@ -21,7 +21,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
     public Lab9P2_Main() {
         initComponents();
-
+        showLogin();
     }
     
     int cont = 0;
@@ -167,6 +167,11 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         jLabel12.setText("Edad");
 
         JB_registrarR.setText("Registrar");
+        JB_registrarR.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                JB_registrarRMouseClicked(evt);
+            }
+        });
 
         javax.swing.GroupLayout JD_registroLayout = new javax.swing.GroupLayout(JD_registro.getContentPane());
         JD_registro.getContentPane().setLayout(JD_registroLayout);
@@ -227,7 +232,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                 .addContainerGap(47, Short.MAX_VALUE))
         );
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
         CB_juego.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Crear", "Modificar", "Seleccionar", "Eliminar", " " }));
@@ -648,7 +653,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
     private void JB_registroMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_registroMouseClicked
         // TODO add your handling code here:
-        JD_registro.setVisible(true);
+        showRegistro();
     }//GEN-LAST:event_JB_registroMouseClicked
 
     private void Idioma_CrearMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_Idioma_CrearMouseClicked
@@ -676,6 +681,26 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         }
         Idioma_Tabla.setModel(Lenguajes);
     }//GEN-LAST:event_Idioma_CrearMouseClicked
+
+    private void JB_registrarRMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JB_registrarRMouseClicked
+        // TODO add your handling code here:      
+        Dba db = new Dba("./Lab9P2_RicardoQuiroz_RigobertoBarahona.accdb");
+        db.conectar();
+        try {
+            String usuario = TF_usuarioR.getText();
+            String nombre = TF_nombreR.getText();
+            String contrasena = TF_contrasenaR.getText();
+            String correo = TF_correoR.getText();
+            int edad = (Integer)JS_edadR.getValue();
+            db.query.execute("INSERT INTO Usuarios"
+                    + " (Usuario, Nombre, Contrasena, Edad, Correo)"
+                    + " VALUES ('" + usuario + "', '" + nombre + "', '" + contrasena + "', '" + edad + "', '" + correo + "')");
+            db.commit();
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        db.desconectar();
+    }//GEN-LAST:event_JB_registrarRMouseClicked
 
 
     public static void main(String args[]) {
@@ -724,6 +749,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         JD_registro.setLocationRelativeTo(this);
         JD_registro.setVisible(true);
     }
+    
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
