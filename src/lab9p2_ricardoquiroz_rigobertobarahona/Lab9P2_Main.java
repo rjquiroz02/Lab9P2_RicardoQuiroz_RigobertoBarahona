@@ -700,6 +700,8 @@ public class Lab9P2_Main extends javax.swing.JFrame {
             ex.printStackTrace();
         }
         db.desconectar();
+        JOptionPane.showMessageDialog(this, "Se ha registrado");
+        JD_registro.setVisible(false);
     }//GEN-LAST:event_JB_registrarRMouseClicked
 
 
