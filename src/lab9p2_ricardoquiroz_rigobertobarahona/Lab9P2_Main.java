@@ -21,10 +21,12 @@ public class Lab9P2_Main extends javax.swing.JFrame {
 
     public Lab9P2_Main() {
         initComponents();
+        
     }
     int cont = 0;
     ArrayList<Usuario> usuarios = new ArrayList();
     ArrayList<Juegos> juegos = new ArrayList();
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -77,7 +79,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         JB_crearIdioma = new javax.swing.JButton();
         JB_agregarIdioma = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        Idioma_Tabla = new javax.swing.JTable();
         JP_correos = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jTextField7 = new javax.swing.JTextField();
@@ -376,8 +378,9 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         JB_crearIdioma.setText("Crear");
 
         JB_agregarIdioma.setText("Agregar");
+        JB_agregarIdioma.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        Idioma_Tabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -400,7 +403,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane3.setViewportView(jTable2);
+        jScrollPane3.setViewportView(Idioma_Tabla);
 
         javax.swing.GroupLayout JP_IdiomaLayout = new javax.swing.GroupLayout(JP_Idioma);
         JP_Idioma.setLayout(JP_IdiomaLayout);
@@ -545,15 +548,21 @@ public class Lab9P2_Main extends javax.swing.JFrame {
         DefaultComboBoxModel CB_Juego = (DefaultComboBoxModel) CB_juego.getModel();
         DefaultTableModel model = (DefaultTableModel) Juego_Tabla1.getModel();
         DefaultTableModel model2 = (DefaultTableModel) Juego_Tabla2.getModel();
+        DefaultComboBoxModel Juegos = (DefaultComboBoxModel) CB_idiomajuego.getModel();
         if (CB_Juego.getSelectedItem().equals("Crear") ) {
             String nombre = Juego_Nombre1.getText();
             String genre = Juego_Categoria1.getText();
             int precio = Integer.parseInt(Juego_Costo1.getText() );
             ArrayList<Lenguaje> temporal = new ArrayList();
-            juegos.add( new Juegos( nombre, genre, precio, temporal) );   
-            Object [] obj = {cont, nombre, genre, precio, temporal};
-            model.addRow(obj);
+            juegos.add( new Juegos( nombre, genre, precio, temporal) );
+            model.setRowCount(0);
+            for (int i = 0; i < juegos.size(); i++){
+                Object [] objs = { i, juegos.get(i).getNombre(), juegos.get(i).getGenre(), juegos.get(i).getPrecio(), juegos.get(i).getLenguas()};
+                model.addRow(objs);
+            }
             Juego_Tabla1.setModel(model);
+            Juegos = new DefaultComboBoxModel(juegos.toArray() );
+            CB_idiomajuego.setModel(Juegos);
             JOptionPane.showMessageDialog(this, "Juego Agregado Exitosamente");
             Juego_Nombre1.setText("");
             Juego_Categoria1.setText("");
@@ -562,18 +571,35 @@ public class Lab9P2_Main extends javax.swing.JFrame {
             if (juegos.isEmpty() ){
                 JOptionPane.showMessageDialog(this, "No hay Juegos para Modificar");
             }else{
-                JOptionPane.showMessageDialog(this, "Modificar");
                 String nombreB = Juego_Nombre1.getText();
                 String nombre = Juego_Nombre2.getText();
-                for (int i = 0; i < juegos.size(); i++){
-                    if (nombreB.equals( juegos.get(i).getNombre() ) ){
+                String genre = Juego_Categoria2.getText();
+                int precio = Integer.parseInt(Juego_Costo2.getText() );
+                for (int i = 0; i < juegos.size(); i++) {
+                    if (nombreB.equals(juegos.get(i).getNombre())) {
                         juegos.get(i).setNombre(nombre);
+                        juegos.get(i).setGenre(genre);
+                        juegos.get(i).setPrecio(precio);
                         JOptionPane.showMessageDialog(this, "Modificacion Exitosa");
-                    } else{
+                    } else {
                         JOptionPane.showMessageDialog(this, "No se pudo encontrar el juego deseado");
                     }
                 }
-            }            
+                model.setRowCount(0);
+                for (int i = 0; i < juegos.size(); i++) {
+                    Object[] objs = {i, juegos.get(i).getNombre(), juegos.get(i).getGenre(), juegos.get(i).getPrecio(), juegos.get(i).getLenguas()};
+                    model.addRow(objs);
+                }
+                Juego_Tabla1.setModel(model);
+                Juegos = new DefaultComboBoxModel(juegos.toArray());
+                CB_idiomajuego.setModel(Juegos);
+                Juego_Nombre1.setText("");
+                Juego_Categoria1.setText("");
+                Juego_Costo1.setText("");
+                Juego_Nombre2.setText("");
+                Juego_Categoria2.setText("");
+                Juego_Costo2.setText("");
+            }
         } else if (CB_Juego.getSelectedItem().equals("Eliminar") ){
             if (juegos.isEmpty() ){
                 JOptionPane.showMessageDialog(this, "No hay Juegos para Eliminar");
@@ -587,8 +613,22 @@ public class Lab9P2_Main extends javax.swing.JFrame {
                         JOptionPane.showMessageDialog(this, "No se pudo encontrar el juego");
                     }
                 }
+                model.setRowCount(0);
+                for (int i = 0; i < juegos.size(); i++) {
+                    Object[] objs = {i, juegos.get(i).getNombre(), juegos.get(i).getGenre(), juegos.get(i).getPrecio(), juegos.get(i).getLenguas()};
+                    model.addRow(objs);
+                }
+                Juego_Tabla1.setModel(model);
+                Juegos = new DefaultComboBoxModel(juegos.toArray());
+                CB_idiomajuego.setModel(Juegos);
+                Juego_Nombre1.setText("");
+                Juego_Categoria1.setText("");
+                Juego_Costo1.setText("");
+                Juego_Nombre2.setText("");
+                Juego_Categoria2.setText("");
+                Juego_Costo2.setText("");
             }
-        } else{
+        } else {
             JOptionPane.showMessageDialog(this, "Seleccionar");
         }
     }//GEN-LAST:event_JB_ejecutarMouseClicked
@@ -629,6 +669,7 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> CB_idiomajuego;
     private javax.swing.JComboBox<String> CB_juego;
+    private javax.swing.JTable Idioma_Tabla;
     private javax.swing.JButton JB_agregarIdioma;
     private javax.swing.JButton JB_crearIdioma;
     private javax.swing.JButton JB_ejecutar;
@@ -687,7 +728,6 @@ public class Lab9P2_Main extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable2;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
